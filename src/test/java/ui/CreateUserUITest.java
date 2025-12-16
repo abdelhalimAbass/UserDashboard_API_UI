@@ -73,13 +73,41 @@ public void Open_driver(){
         WebElement OTP =wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("code")));
         OTP.sendKeys("1234");
         driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/main/div[1]/div/div[1]/button")).click();
         Thread.sleep(3000);
+        driver.findElement(By.cssSelector("input[placeholder=\"Enter Your National Id\"]")).sendKeys(TestData.national_ID);
+        driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[2]/div/form/button")).click();
+        //WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+        Thread.sleep(15000);
+        WebElement Data_type=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kyc_25_176\"]/div/div/div/div/div/div/div/span[1]")));
+        Data_type.click();
+        driver.findElement(By.xpath("//*[@id=\"pv_id_37\"]/span")).click();
+        WebElement Gender=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_37_0\"]/span")));
+        Gender.click();
+        driver.findElement(By.xpath("//*[@id=\"pv_id_38\"]/span")).click();
+        WebElement title=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_38_4\"]/span")));
+        title.click();
+        driver.findElement(By.xpath("//*[@id=\"pv_id_39\"]/span")).click();
+        WebElement status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_39_0\"]")));
+        status.click();
+        driver.findElement(By.xpath("//*[@id=\"kyc_25_139\"]")).sendKeys("sudi arabia");
+        driver.findElement(By.xpath("//*[@id=\"pv_id_41\"]/span")).click();
+        WebElement Martial_Status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_41_1\"]")));
+        Martial_Status.click();
+        driver.findElement(By.xpath("//*[@id=\"kyc_25_141\"]")).sendKeys("5");
+        driver.findElement(By.xpath("//*[@id=\"pv_id_42\"]/span")).click();
+        WebElement Education_level=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_42_2\"]/span")));
+        Education_level.click();
+
+
+
+
+
     }
-    @AfterMethod
-    public void after_method(){
-    if(driver!=null)
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void after_method(){
+//    if(driver!=null)
+//        driver.quit();
+//    }
 }

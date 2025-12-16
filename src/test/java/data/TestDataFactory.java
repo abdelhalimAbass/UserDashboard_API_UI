@@ -8,6 +8,10 @@ public class TestDataFactory {
         return TestData.gen_num= String.valueOf(
                 ThreadLocalRandom.current().nextLong(100_000_000L, 1_000_000_000L));
     }
+    public static String random_national_ID() {
+        return TestData.gen_num= String.valueOf("1"+
+                ThreadLocalRandom.current().nextLong(100_000_000L, 1_000_000_000L));
+    }
 
 //    public static String randomEmail() {
 //        return "test_" + System.currentTimeMillis() + "@mail.com";

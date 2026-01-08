@@ -2,6 +2,7 @@ package ui;
 
 import base.BaseTest;
 import data.TestData;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,7 +21,9 @@ WebDriver driver;
 @BeforeMethod
 public void Open_driver(){
     driver = new ChromeDriver();
+    WebDriverManager.chromedriver().setup();
     driver.manage().window().maximize();
+
 }
     @Test(priority = 0)
     public void createUserUI() throws InterruptedException {
@@ -79,7 +82,7 @@ public void Open_driver(){
         driver.findElement(By.cssSelector("input[placeholder=\"Enter Your National Id\"]")).sendKeys(TestData.national_ID);
         driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[2]/div/form/button")).click();
         //WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
-        Thread.sleep(15000);
+        Thread.sleep(20000);
         WebElement Data_type=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kyc_25_176\"]/div/div/div/div/div/div/div/span[1]")));
         Data_type.click();
         driver.findElement(By.xpath("//*[@id=\"pv_id_37\"]/span")).click();
@@ -91,15 +94,32 @@ public void Open_driver(){
         driver.findElement(By.xpath("//*[@id=\"pv_id_39\"]/span")).click();
         WebElement status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_39_0\"]")));
         status.click();
-        driver.findElement(By.xpath("//*[@id=\"kyc_25_139\"]")).sendKeys("sudi arabia");
+        driver.findElement(By.xpath("//*[@id=\"kyc_25_139\"]")).click();
+//       WebElement place_of_birth= driver.findElement(By.xpath("//*[@id=\"kyc_25_139\"]"));
+//       Thread.sleep(2000);
+//        System.out.println(place_of_birth.isDisplayed());
+//       place_of_birth.sendKeys("sudi arabia");
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"kyc_25_139\"]")));
+        saveBtn.click();
+        WebElement element=wait.until(ExpectedConditions.presenceOfElementLocated(By.id("kyc_25_141")));
+        element.click();
+       // element.sendKeys("hhhhhh");
         driver.findElement(By.xpath("//*[@id=\"pv_id_41\"]/span")).click();
         WebElement Martial_Status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_41_1\"]")));
         Martial_Status.click();
-        driver.findElement(By.xpath("//*[@id=\"kyc_25_141\"]")).sendKeys("5");
+
+
+       // driver.findElement(By.xpath("//*[@id=\"kyc_25_141\"]")).sendKeys("5");
         driver.findElement(By.xpath("//*[@id=\"pv_id_42\"]/span")).click();
         WebElement Education_level=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_42_2\"]/span")));
         Education_level.click();
-
+       WebElement place_op_birth=wait.until(ExpectedConditions.elementToBeClickable(By.id("kyc_25_151")));
+        //place_op_birth.clear();
+        place_op_birth.sendKeys("55");
+       // driver.findElement(By.id("kyc_25_139")).sendKeys("5555");
+       // driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/main/div/div/form/div[4]/div/button")).click();
+        //id="kyc_25_139"
 
 
 
@@ -109,5 +129,5 @@ public void Open_driver(){
 //    public void after_method(){
 //    if(driver!=null)
 //        driver.quit();
-//    }
+//   }
 }

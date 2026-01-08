@@ -1,6 +1,10 @@
 package data;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+
 public class TestData {
+    public static WebDriver driver;
     public static String mobile;
     public static String national_ID;
     public static String gen_num ;

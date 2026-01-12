@@ -56,6 +56,7 @@ public void Open_driver(){
     public  void test_login() throws InterruptedException {
         driver.get(TestData.Signin_url);
         driver.findElement(By.id("mobile-number")).sendKeys(TestData.mobile);
+        //TestData.mobile
         driver.findElement(By.id("password")).sendKeys("P@ssw0rd");
         driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
         WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -70,15 +71,16 @@ public void Open_driver(){
     public void fill_KYC() throws InterruptedException {
         driver.get(TestData.Signin_url);
         driver.findElement(By.id("mobile-number")).sendKeys(TestData.mobile);
+        //TestData.mobile
         driver.findElement(By.id("password")).sendKeys("P@ssw0rd");
         driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
         WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
         WebElement OTP =wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("code")));
         OTP.sendKeys("1234");
         driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/main/div[1]/div/div[1]/button")).click();
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         driver.findElement(By.cssSelector("input[placeholder=\"Enter Your National Id\"]")).sendKeys(TestData.national_ID);
         driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[2]/div/form/button")).click();
         //WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -95,31 +97,51 @@ public void Open_driver(){
         WebElement status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_39_0\"]")));
         status.click();
         driver.findElement(By.xpath("//*[@id=\"kyc_25_139\"]")).click();
-//       WebElement place_of_birth= driver.findElement(By.xpath("//*[@id=\"kyc_25_139\"]"));
-//       Thread.sleep(2000);
-//        System.out.println(place_of_birth.isDisplayed());
-//       place_of_birth.sendKeys("sudi arabia");
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"kyc_25_139\"]")));
         saveBtn.click();
         WebElement element=wait.until(ExpectedConditions.presenceOfElementLocated(By.id("kyc_25_141")));
         element.click();
-       // element.sendKeys("hhhhhh");
+        driver.findElement(By.cssSelector("input[name=\"kyc_25_151\"]")).sendKeys("1235");
+        driver.findElement(By.cssSelector("input[name=\"kyc_25_152\"]")).sendKeys("input[name=\"kyc_25_152\"]");
         driver.findElement(By.xpath("//*[@id=\"pv_id_41\"]/span")).click();
         WebElement Martial_Status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_41_1\"]")));
         Martial_Status.click();
-
-
-       // driver.findElement(By.xpath("//*[@id=\"kyc_25_141\"]")).sendKeys("5");
         driver.findElement(By.xpath("//*[@id=\"pv_id_42\"]/span")).click();
         WebElement Education_level=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_42_2\"]/span")));
         Education_level.click();
-       WebElement place_op_birth=wait.until(ExpectedConditions.elementToBeClickable(By.id("kyc_25_151")));
-        //place_op_birth.clear();
-        place_op_birth.sendKeys("55");
-       // driver.findElement(By.id("kyc_25_139")).sendKeys("5555");
-       // driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/main/div/div/form/div[4]/div/button")).click();
-        //id="kyc_25_139"
+        Thread.sleep(5000);
+        driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-19\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-28\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-30\"]/div/div")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-33\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-36\"]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-39\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-42\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-6\"]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-10\"]/span[1]")).click();
+
+        WebElement page2Next=wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type=\"submit\"]")));
+        page2Next.click();
+        WebElement num_year_invest=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"headlessui-radiogroup-option-54\"]/span[1]")));
+        num_year_invest.click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("headlessui-radiogroup-option-47")).click();
+        driver.findElement(By.xpath("//*[@id=\"kyc_32_154\"]/div/div/div/div/div/div[7]/div/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-51\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-54\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"kyc_32_158\"]/div/div/div/div/div/div[1]/div/span[1]")).click();
+//        driver.findElement(By.xpath("//*[@id=\"kyc_32_159\"]")).sendKeys("hj");
+//        driver.findElement(By.xpath("//*[@id=\"kyc_32_160\"]")).sendKeys("fg");
+//        driver.findElement(By.xpath("//*[@id=\"kyc_32_161\"]")).sendKeys("hh");
+//        driver.findElement(By.xpath("//*[@id=\"kyc_32_162\"]")).sendKeys("55");
+
+      //  driver.findElement(By.id("kyc_32_162")).sendKeys("4");
+        driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/main/div/div/form/div[2]/div/button[2]")).click();
+
 
 
 

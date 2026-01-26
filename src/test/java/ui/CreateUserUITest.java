@@ -87,30 +87,35 @@ public void Open_driver(){
         Thread.sleep(20000);
         WebElement Data_type=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kyc_25_176\"]/div/div/div/div/div/div/div/span[1]")));
         Data_type.click();
-        driver.findElement(By.xpath("//*[@id=\"pv_id_37\"]/span")).click();
-        WebElement Gender=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_37_0\"]/span")));
+       // driver.findElement().click();
+        driver.findElement(By.xpath("//span[@aria-label=\"Gender\"]")).click();
+        WebElement Gender=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Male')]")));
         Gender.click();
-        driver.findElement(By.xpath("//*[@id=\"pv_id_38\"]/span")).click();
-        WebElement title=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_38_4\"]/span")));
+        driver.findElement(By.xpath("//span[@aria-label=\"Title\"]")).click();
+        WebElement title=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Eng')]")));
         title.click();
-        driver.findElement(By.xpath("//*[@id=\"pv_id_39\"]/span")).click();
-        WebElement status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_39_0\"]")));
+        driver.findElement(By.xpath("//span[@aria-label=\"Status\"]")).click();
+        WebElement status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Natural')]")));
         status.click();
-        driver.findElement(By.xpath("//*[@id=\"kyc_25_139\"]")).click();
-        WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"kyc_25_139\"]")));
-        saveBtn.click();
-        WebElement element=wait.until(ExpectedConditions.presenceOfElementLocated(By.id("kyc_25_141")));
+        driver.findElement(By.xpath("//span[@aria-label=\"Martial Status\"]")).click();
+        WebElement marital_status = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Married')]")));
+        marital_status.click();
+        WebElement element=wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@aria-label=\"Education Level\"]")));
         element.click();
-        driver.findElement(By.cssSelector("input[name=\"kyc_25_151\"]")).sendKeys("1235");
+        driver.findElement(By.xpath("//span[contains(text(),'Primary')]")).click();
+        driver.findElement(By.xpath("//input[@data-pc-name='inputtext' and @name='kyc_25_151']\n")).sendKeys("1235");
         driver.findElement(By.cssSelector("input[name=\"kyc_25_152\"]")).sendKeys("input[name=\"kyc_25_152\"]");
-        driver.findElement(By.xpath("//*[@id=\"pv_id_41\"]/span")).click();
-        WebElement Martial_Status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_41_1\"]")));
-        Martial_Status.click();
-        driver.findElement(By.xpath("//*[@id=\"pv_id_42\"]/span")).click();
-        WebElement Education_level=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_42_2\"]/span")));
-        Education_level.click();
-        Thread.sleep(5000);
-        driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+        driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+
+        //driver.findElement(By.xpath("//*[@id=\"pv_id_41\"]/span")).click();
+        //WebElement Martial_Status=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_41_1\"]")));
+       // Martial_Status.click();
+        //driver.findElement(By.xpath("//*[@id=\"pv_id_42\"]/span")).click();
+        //WebElement Education_level=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"pv_id_42_2\"]/span")));
+       // Education_level.click();
+        //Thread.sleep(5000);
+       // driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+        // KYC page two
         Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-19\"]/span[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-28\"]/span[1]")).click();
@@ -124,32 +129,31 @@ public void Open_driver(){
 
         WebElement page2Next=wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[type=\"submit\"]")));
         page2Next.click();
-        WebElement num_year_invest=wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"headlessui-radiogroup-option-54\"]/span[1]")));
-        num_year_invest.click();
+        //KYC page 3
         Thread.sleep(3000);
-        driver.findElement(By.id("headlessui-radiogroup-option-47")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-47\"]/span[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"kyc_32_154\"]/div/div/div/div/div/div[7]/div/span[1]")).click();
         driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-51\"]/span[1]")).click();
-        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-54\"]/span[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"headlessui-radiogroup-option-56\"]/div/div")).click();
         driver.findElement(By.xpath("//*[@id=\"kyc_32_158\"]/div/div/div/div/div/div[1]/div/span[1]")).click();
-//        driver.findElement(By.xpath("//*[@id=\"kyc_32_159\"]")).sendKeys("hj");
-//        driver.findElement(By.xpath("//*[@id=\"kyc_32_160\"]")).sendKeys("fg");
-//        driver.findElement(By.xpath("//*[@id=\"kyc_32_161\"]")).sendKeys("hh");
-//        driver.findElement(By.xpath("//*[@id=\"kyc_32_162\"]")).sendKeys("55");
+        driver.findElement(By.xpath("//input[@type=\"number\"]")).sendKeys("10");
+        driver.findElement(By.xpath("//input[@type=\"text\" and @name=\"kyc_32_160\"]")).sendKeys("10");
+        driver.findElement(By.xpath("//input[@type=\"text\" and @name=\"kyc_32_161\"]")).sendKeys("10.");
+        driver.findElement(By.xpath("//input[@type=\"text\" and @name=\"kyc_32_162\"]")).sendKeys("10.");
+        driver.findElement(By.xpath("//*[@id=\"kyc_32_157\"]/div/textarea")).sendKeys("10");
+        driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
 
-      //  driver.findElement(By.id("kyc_32_162")).sendKeys("4");
-        driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/main/div/div/form/div[2]/div/button[2]")).click();
 
 
 
 
 
     }
-//    @AfterMethod
-//    public void after_method(){
-//    if(driver!=null)
-//        driver.quit();
-//   }
+    @AfterMethod
+    public void after_method(){
+    if(driver!=null)
+        driver.quit();
+   }
 }

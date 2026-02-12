@@ -5,7 +5,7 @@
     <test name="API + UI Tests">
         <classes>
             <class name="api.CreateAdminAPITest"/>
-            <class name="ui.CreateUserUITest"/>
+            <class name="ui.Create_User_Individual_UITest"/>
         </classes>
     </test>
 
